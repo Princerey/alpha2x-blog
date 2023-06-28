@@ -51,8 +51,8 @@ const MyApp = ({ Component, pageProps, global }) => {
 export async function getServerSideProps({ Component, ctx }) {
   let pageProps = {};
 
-  if (Component.getServerSideProps) {
-    pageProps = await Component.getServerSideProps(ctx);
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
   }
 
   try {
@@ -70,7 +70,8 @@ export async function getServerSideProps({ Component, ctx }) {
     console.log('Error fetching global data:', error);
   }
 
-  return { props: { pageProps, global: pageProps.global } };
+  return { props: { ...pageProps, global: pageProps.global } };
 }
+
 
 export default MyApp;
