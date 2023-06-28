@@ -24,9 +24,6 @@
     "react-markdown": "^4.2.2",
     "react-moment": "^0.9.6"
   },
-  "engines": {
-    "node": "16.17.0"
-  },
   "license": "MIT",
   "devDependencies": {
     "yarn-audit-fix": "^9.3.12"
