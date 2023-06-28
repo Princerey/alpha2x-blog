@@ -1,0 +1,34 @@
+{
+  "name": "alpha2x-blog",
+  "version": "1.0.3",
+  "private": true,
+  "scripts": {
+    "develop": "next dev",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "deploy": "next build && next export",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.5",
+    "moment": "^2.24.0",
+    "next": "^11.0.0",
+    "qs": "^6.10.1",
+    "react": "17.0.0",
+    "react-dom": "17.0.0",
+    "react-markdown": "^4.2.2",
+    "react-moment": "^0.9.6"
+  },
+  "engines": {
+    "node": "==16.17.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "yarn-audit-fix": "^9.3.12"
+  }
+}
