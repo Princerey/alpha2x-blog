@@ -11,8 +11,7 @@ import theme from '../theme/theme';
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
 
-const MyApp = ({ Component, pageProps }) => {
-  const { global } = pageProps;
+const MyApp = ({ Component, pageProps, global }) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -28,7 +27,7 @@ const MyApp = ({ Component, pageProps }) => {
   }, []);
 
   if (!global) {
-    console.log("Error testing")
+    console.log("Error testing");
     return <div>Loading...</div>; // or render a loading state if desired
   }
 
@@ -49,11 +48,11 @@ const MyApp = ({ Component, pageProps }) => {
   );
 };
 
-MyApp.getInitialProps = async ({ Component, ctx }) => {
+export async function getServerSideProps({ Component, ctx }) {
   let pageProps = {};
 
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps(ctx);
+  if (Component.getServerSideProps) {
+    pageProps = await Component.getServerSideProps(ctx);
   }
 
   try {
@@ -71,7 +70,7 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
     console.log('Error fetching global data:', error);
   }
 
-  return { pageProps };
-};
+  return { props: { pageProps, global: pageProps.global } };
+}
 
 export default MyApp;
